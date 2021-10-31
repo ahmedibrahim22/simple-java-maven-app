@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                bat 'mkdir hi'
+            }
+        }
+        stage('Test') {
+            steps {
+                bat 'mkdir testing'
+            }
+            post {
+                always {
+                    bat 'mkdir results'
+                }
+            }
+        }
+        stage('Deliver') {
+            steps {
+                bat 'mkdir sending'
+            }
+        }
+    }
+}
